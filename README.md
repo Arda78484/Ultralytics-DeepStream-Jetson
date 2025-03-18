@@ -32,8 +32,15 @@ docker run -it --runtime=nvidia \
 ```
 Note: If you are running engine for the first time it can take long time don't worry
 ```bash
-    cd ws 
-    deepstream-app -c deepstream_app_config.txt
+    cd ws
+```   
+1st Option) Run inference on camera:
+```bash
+    deepstream-app -c infer_on_camera.txt
+```
+2nd Option) Run inference on video:
+```bash
+    deepstream-app -c infer_on_video.txt
 ```
 
 ## Slower Start
