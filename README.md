@@ -10,11 +10,15 @@ This repository contains a Dockerfile for DeepStream-compatible Docker container
 
 ## Quick Start
 
-Pull the Docker image:
+Pull the Docker image that you need:
 
 ```bash
 docker pull arda78484/ultralytics-deepstream:latest-jetpack6
 ```
+```bash
+docker pull arda78484/ultralytics-deepstream:latest-480p-jetpack6
+```
+
 
 Run the container:
 
