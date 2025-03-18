@@ -26,7 +26,7 @@ docker run -it --runtime=nvidia \
     -v /dev:/dev \
     arda78484/ultralytics-deepstream:latest-jetpack6
 ```
-## Quick Start
+## Slower Start
 
 Or you can build the dockerfile
 
