@@ -20,15 +20,17 @@ docker pull arda78484/ultralytics-deepstream:latest-480p-jetpack6
 ```
 
 Run the container:
-
+```bash
+xhost +local:docker
+```
 ```bash
 docker run -it --runtime=nvidia \
     --privileged \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
     -v /dev:/dev \
-    -v ~/Ultralytics-DeepStream-Jetson/engines:/ws \
-    arda78484/ultralytics-deepstream:latest-jetpack6
+    -v ~/Ultralytics-DeepStream-Jetson/src:/ws \
+    arda78484/ultralytics-deepstream:v1.1-jetpack6
 ```
 Note: If you are running engine for the first time it can take long time don't worry
 ```bash

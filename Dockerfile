@@ -28,14 +28,14 @@ RUN pip install -e ".[export]" onnxslim
 RUN git clone https://github.com/marcoslucianops/DeepStream-Yolo /DeepStream-Yolo
 
 # Copy the export_yoloV8.py file from DeepStream-Yolo/utils to the ultralytics folder
-RUN cp /DeepStream-Yolo/utils/export_yoloV8.py /ultralytics
+RUN cp /DeepStream-Yolo/utils/export_yolo11.py /ultralytics
 
 # Download the YOLOv11 model (yolo11s.pt)
 WORKDIR /ultralytics
 RUN wget https://github.com/ultralytics/assets/releases/download/v8.3.0/yolo11s.pt
 
 # Convert the YOLOv11 model to ONNX
-RUN python3 export_yoloV8.py -w yolo11s.pt --opset 16 -s 1280 --simplify --dynamic
+RUN python3 export_yolo11.py -w yolo11s.pt --opset 16 -s 1280 --simplify --dynamic
 
 # Copy the generated ONNX model and labels.txt to the DeepStream-Yolo folder
 RUN cp yolo11s.pt.onnx labels.txt /DeepStream-Yolo  
