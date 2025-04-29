@@ -1,0 +1,61 @@
+# Example Configuration File for DeepStream Camera Display Script
+
+[camera]
+# Type of camera source:
+# 0 = CSI camera (Jetson onboard, requires nvarguscamerasrc)
+# 1 = V4L2 source (USB camera, requires v4l2src)
+type = 1
+
+# Device path for V4L2 source (only used if type=1)
+# Check your system, common paths are /dev/video0, /dev/video1, etc.
+device = /dev/video0
+
+# Desired capture width in pixels
+width = 1280
+
+# Desired capture height in pixels
+height = 720
+
+# Desired capture framerate (frames per second)
+framerate = 30
+
+# Camera output format (case-insensitive, will be converted to upper)
+# Common formats for USB cameras: MJPG, YUY2
+# Common formats for CSI cameras: NV12, I420 (check camera specs)
+# If using MJPG, a jpeg decoder (nvjpegdec or jpegdec) will be added.
+format = MJPG
+
+# V4L2 IO mode (only used if type=1)
+# -1 = Don't set explicitly (let v4l2src decide)
+# 2 = MMAP (Memory Map) - Often preferred
+# 4 = DMABUF (Direct Memory Access Buffer) - May offer better performance if supported
+# Other values might exist depending on the driver.
+io_mode = 2
+
+# Sensor ID for CSI camera (only used if type=0)
+# Usually 0 for the primary onboard camera on Jetson.
+sensor_id = 0
+
+[sink]
+# Synchronize the display sink to the clock (true/false)
+# Setting to false might reduce latency but can cause tearing.
+sync = false
+
+# Enable Quality of Service (QoS) messages (true/false)
+# Can help manage buffer levels but might add slight overhead.
+qos = false
+
+# Display window position X coordinate (0 for top-left)
+window_x = 0
+
+# Display window position Y coordinate (0 for top-left)
+window_y = 0
+
+# Display window width (pixels)
+# 0 = Use the source width defined in the [camera] section
+window_width = 0
+
+# Display window height (pixels)
+# 0 = Use the source height defined in the [camera] section
+window_height = 0
+
