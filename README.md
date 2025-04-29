@@ -19,19 +19,17 @@ docker pull arda78484/ultralytics-deepstream:latest-jetpack6
 docker pull arda78484/ultralytics-deepstream:latest-480p-jetpack6
 ```
 First:
-```bash
-xhost +
-```
 
-Run the container:
 ```bash
 xhost +local:docker
 ```
+Run the container:
 ```bash
 docker run -it --runtime=nvidia \
     --privileged \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+    -v /tmp/argus_socket:/tmp/argus_socket \
     -v /dev:/dev \
     -v ~/Ultralytics-DeepStream-Jetson/src:/ws \
     arda78484/ultralytics-deepstream:v1.1-jetpack6
