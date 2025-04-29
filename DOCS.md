@@ -1,5 +1,7 @@
 ### Configuration Files (`config*.txt`)
 
+For more information, please visit the [NVIDIA DeepStream Documentation](https://docs.nvidia.com/metropolis/deepstream/dev-guide/text/DS_ref_app_deepstream.html).
+
 These files define model-related operations:
 
 *   `model-engine-file`: Path to the generated TensorRT engine file.
